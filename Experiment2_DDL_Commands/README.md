@@ -41,35 +41,40 @@ DROP TABLE relation_name;
 
 ### 4. RENAME
 Used to rename an existing database object.
+```
 sql
 RENAME TABLE old_relation_name TO new_relation_name;
+```
 
 ### CONSTRAINTS
 Constraints are used to specify rules for the data in a table. If there is any violation between the constraint and the data action, the action is aborted by the constraint. It can be specified when the table is created (using CREATE TABLE) or after it is created (using ALTER TABLE).
 ### 1. NOT NULL
 When a column is defined as NOT NULL, it becomes mandatory to enter a value in that column.
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   column_name data_type(size) NOT NULL
 );
-
+```
 ### 2. UNIQUE
 Ensures that values in a column are unique.
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   column_name data_type(size) UNIQUE
 );
-
+```
 ### 3. CHECK
 Specifies a condition that each row must satisfy.
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   column_name data_type(size) CHECK (logical_expression)
 );
-
+```
 ### 4. PRIMARY KEY
 Used to uniquely identify each record in a table.
 Properties:
@@ -77,36 +82,39 @@ Must contain unique values.
 Cannot be null.
 Should contain minimal fields.
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   column_name data_type(size) PRIMARY KEY
 );
-
+```
 ### 5. FOREIGN KEY
 Used to reference the primary key of another table.
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   column_name data_type(size),
   FOREIGN KEY (column_name) REFERENCES other_table(column)
 );
-
+```
 ### 6. DEFAULT
 Used to insert a default value into a column if no value is specified.
 
 Syntax:
+```
 sql
 CREATE TABLE Table_Name (
   col_name1 data_type,
   col_name2 data_type,
   col_name3 data_type DEFAULT 'default_value'
 );
-
+```
 
 *Question 1*
 --
 ![image](https://github.com/user-attachments/assets/a96ca725-91db-4ea8-bcdf-dcc5eef9d6e4)
-
+```
 sql
 CREATE TABLE contacts(
 contact_id INTEGER primary key,
@@ -115,7 +123,7 @@ last_name TEXT not NULL,
 email TEXT,
 phone TEXT not NULL CHECK(LENGTH(phone)>=10)
 );
-
+```
 
 *Output:*
 
@@ -124,11 +132,11 @@ phone TEXT not NULL CHECK(LENGTH(phone)>=10)
 *Question 2*
 ---
 ![image](https://github.com/user-attachments/assets/1c21219d-9085-4160-a3ab-c8014620e267)
-
+```
 sql
 ALTER TABLE customer
 ADD COLUMN email VARCHAR(100);
-
+```
 
 *Output:*
 
@@ -138,7 +146,7 @@ ADD COLUMN email VARCHAR(100);
 ---
 ![image](https://github.com/user-attachments/assets/c302ada3-d5d2-4aec-a2cd-5c8394273291)
 
-
+```
 sql
 CREATE TABLE item(
 item_id TEXT primary key,
@@ -147,7 +155,7 @@ rate INTEGER,
 icom_id TEXT CHECK(LENGTH(icom_id)>=4),
 FOREIGN KEY(icom_id) REFERENCES company(com_id) ON DELETE SET NULL ON UPDATE SET NULL
 );
-
+```
 
 *Output:*
 
@@ -157,11 +165,11 @@ FOREIGN KEY(icom_id) REFERENCES company(com_id) ON DELETE SET NULL ON UPDATE SET
 ---
 ![image](https://github.com/user-attachments/assets/614f1452-0985-4672-b0fa-648618c046c0)
 
-
+```
 sql
 INSERT INTO student_details
 SELECT * FROM archived_students;
-
+```
 
 *Output:*
 
@@ -172,7 +180,7 @@ SELECT * FROM archived_students;
 ---
 ![image](https://github.com/user-attachments/assets/866cb6e7-3e5b-4c84-98ea-567b19b27a82)
 
-
+```
 sql
 INSERT INTO Products(ProductID,Name,Category)
 VALUES(106,'Fitness Tracker','Wearables'); 
@@ -180,7 +188,7 @@ INSERT INTO Products(ProductID,Name,Category,Price,Stock)
 VALUES(107,'Laptop','Electronic',999.99,50);  
 INSERT INTO Products(ProductID,Name,Category,Stock)
 VALUES(108,'Wireless Earbud','Accessorie',100);  
-
+```
 
 *Output:*
 
@@ -191,11 +199,11 @@ VALUES(108,'Wireless Earbud','Accessorie',100);
 ---
 ![image](https://github.com/user-attachments/assets/b91fd14e-99ad-40a5-a589-aeac80489fbd)
 
-
+```
 sql
 INSERT INTO Products(ProductID,Name,Category)
 VALUES(104,'Tablet','Electronics');
-
+```
 
 *Output:*
 
@@ -206,11 +214,11 @@ VALUES(104,'Tablet','Electronics');
 ---
 ![image](https://github.com/user-attachments/assets/1801a0f0-45e9-455d-a190-345887e81a26)
 
-
+```
 sql
 ALTER TABLE Student_details
 ADD Mobilenumber number;
-
+```
 
 *Output:*
 
@@ -221,7 +229,7 @@ ADD Mobilenumber number;
 ---
 ![image](https://github.com/user-attachments/assets/eef2857b-5b37-4f85-88d1-42b37a2240dc)
 
-
+```
 sql
 CREATE TABLE Shipments(
 ShipmentID INTEGER primary key,
@@ -231,7 +239,7 @@ OrderID INTEGER,
 FOREIGN KEY(SupplierID) REFERENCES Suppliers(SupplierID),
 FOREIGN KEY(OrderID) REFERENCES Orders(OrderID) 
 );
-
+```
 
 *Output:*
 
@@ -242,7 +250,7 @@ FOREIGN KEY(OrderID) REFERENCES Orders(OrderID)
 ---
 ![image](https://github.com/user-attachments/assets/c42ebe08-e791-4916-a457-5e5175da5db5)
 
-
+```
 sql
 CREATE TABLE jobs(
 job_id INTEGER,
@@ -250,7 +258,7 @@ job_title TEXT DEFAULT '',
 min_salary INTEGER DEFAULT 8000,
 max_salary INTEGER DEFAULT NULL
 );
-
+```
 
 *Output:*
 
@@ -261,7 +269,7 @@ max_salary INTEGER DEFAULT NULL
 ---
 ![image](https://github.com/user-attachments/assets/cfc37671-01b5-43e1-b32f-f91fb5b3a89a)
 
-
+```
 sql
 CREATE TABLE Employees(
 EmployeeID INTEGER,
@@ -269,7 +277,7 @@ FirstName TEXT,
 LastName TEXT,
 HireDate DATE 
 );
-
+```
 
 *Output:*
 
