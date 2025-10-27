@@ -10,11 +10,13 @@ Used to add records into a relation.
 These are three type of INSERT INTO queries which are as
 A)Inserting a single record
 **Syntax (Single Row):**
-```sql
+```
+sql
 INSERT INTO table_name (field_1, field_2, ...) VALUES (value_1, value_2, ...);
 ```
 **Syntax (Multiple Rows):**
-```sql
+```
+sql
 INSERT INTO table_name (field_1, field_2, ...) VALUES
 (value_1, value_2, ...),
 (value_3, value_4, ...);
@@ -26,30 +28,35 @@ INSERT INTO table_name SELECT * FROM other_table WHERE condition;
 ### 2. UPDATE
 Used to modify records in a relation.
 Syntax:
-```sql
+```
+sql
 UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 ```
 ### 3. DELETE
 Used to delete records from a relation.
 **Syntax (All rows):**
-```sql
+```
+sql
 DELETE FROM table_name;
 ```
 **Syntax (Specific condition):**
-```sql
+```
+sql
 DELETE FROM table_name WHERE condition;
 ```
 ### 4. SELECT
 Used to retrieve records from a table.
 **Syntax:**
-```sql
+```
+sql
 SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
 ![image](https://github.com/user-attachments/assets/4edfbe94-d2a2-4790-aaac-56760b245cb8)
 
-```sql
+```
+sql
 UPDATE Products SET quantity=(quantity*1.10);
 ```
 
